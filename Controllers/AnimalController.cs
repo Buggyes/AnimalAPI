@@ -68,20 +68,20 @@ namespace AnimalAPI.Controllers
 			return Ok(animal);
 		}
 
-		[HttpGet("isDomesticRequest/{isDomesticRequest}")]
-		public async Task<ActionResult<AnimalModel>> GetAnimalByDomesticity(bool isDomesticRequest)
+		[HttpGet]
+		public async Task<ActionResult<AnimalModel>> GetAllDomesticAnimals()
 		{
 			List<AnimalModel> animalsRequest = new List<AnimalModel>();
 			for (int i = 0; i < animals.Count; i++)
 			{
-                if (animals[i].IsDomestic == isDomesticRequest)
+                if (animals[i].IsDomestic == true)
                 {
 					animalsRequest.Add(animals[i]);
                 }
             }
 			if (animalsRequest.Count == 0)
 			{
-				return BadRequest("Animal With Said Domesticity Not Found");
+				return BadRequest("Domestic Animals Not Found");
 			}
 			return Ok(animalsRequest);
 		}

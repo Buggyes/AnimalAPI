@@ -1,8 +1,9 @@
+using AnimalAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AnimalAPI.Controllers
 {
-	[ApiController]
+    [ApiController]
 	[Route("[controller]")]
 	public class AnimalController : ControllerBase
 	{
@@ -68,7 +69,7 @@ namespace AnimalAPI.Controllers
 			return Ok(animal);
 		}
 
-		[HttpGet]
+		[HttpGet("GetAllDomesticAnimals")]
 		public async Task<ActionResult<AnimalModel>> GetAllDomesticAnimals()
 		{
 			List<AnimalModel> animalsRequest = new List<AnimalModel>();
